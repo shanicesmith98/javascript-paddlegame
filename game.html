@@ -58,7 +58,19 @@
       ballY = canvas.height/2;
     }
 
+    function computerMovement() {
+      var paddleTwoYCenter = paddleTwoY + (PADDLE_HEIGHT/2); // finds center of paddle
+      if (paddleTwoYCenter < ballY - 35) {
+        paddleTwoY += 6;
+      } else if (paddleTwoYCenter > ballY + 35) {
+        paddleTwoY -= 6;
+      }
+
+    }
+
     function moveEverything() {
+      computerMovement();
+
       ballX += ballSpeedX; // moves ball verticallly
       ballY += ballSpeedY; // moves ball horizonally
       if (ballX < 0) {
