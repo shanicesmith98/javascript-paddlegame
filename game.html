@@ -21,7 +21,7 @@
 
     var playerOneScore = 0;
     var playerTwoScore = 0;
-    const WINNING_SCORE = 5;
+    const WINNING_SCORE = 10;
 
     var showingWinScreen = false;
 
@@ -95,7 +95,7 @@
 
     function ballReset() { // sends ball back to starts
       if (playerOneScore >= WINNING_SCORE || playerTwoScore >= WINNING_SCORE) {
-        showingWinScreen = true;
+        showingWinScreen = true; // shows win screen when a player wins
       }
 
       ballSpeedX /= -1; // values switchs between pos and neg
@@ -106,9 +106,9 @@
     function computerMovement() {
       var paddleTwoYCenter = paddleTwoY + (PADDLE_HEIGHT/2); // finds center of paddle
       if (paddleTwoYCenter < ballY - 35) {
-        paddleTwoY += 6;
+        paddleTwoY += 12;
       } else if (paddleTwoYCenter > ballY + 35) {
-        paddleTwoY -= 6;
+        paddleTwoY -= 12;
       }
 
     }
