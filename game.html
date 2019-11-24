@@ -12,7 +12,6 @@
     var canvasContext;
     var userBGColor = prompt("What color do you want the background to be? (RED, BLUE, GREEN)");
     var userBallColor = prompt("What color do you want the ball to be? (RED, BLUE, GREEN)");
-    var ballColor = "#ffffff";
     
     var ballX = 50;
     var ballY = 50;
@@ -65,7 +64,7 @@
       }
     }
 
-    function handleMouseClick(evt) {
+    function handleMouseClick(evt) { // click screen to return to game
       if(showingWinScreen) {
         playerOneScore = 0;
         playerTwoScore = 0;
@@ -82,9 +81,9 @@
       setInterval(function() {
               moveEverything();
               drawEverything();
-      }, 1000/framesPerSecond); // frame rate
+      }, 500/framesPerSecond); // frame rate
 
-      canvas.addEventListener('mousedown', handleMouseClick);
+      canvas.addEventListener('mousedown', handleMouseClick); // calls function for mouse click
 
       canvas.addEventListener('mousemove',
               function(evt) {
@@ -106,9 +105,9 @@
     function computerMovement() {
       var paddleTwoYCenter = paddleTwoY + (PADDLE_HEIGHT/2); // finds center of paddle
       if (paddleTwoYCenter < ballY - 35) {
-        paddleTwoY += 12;
+        paddleTwoY += 6;
       } else if (paddleTwoYCenter > ballY + 35) {
-        paddleTwoY -= 12;
+        paddleTwoY -= 6;
       }
 
     }
