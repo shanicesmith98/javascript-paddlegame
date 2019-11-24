@@ -136,11 +136,12 @@
       if (showingWinScreen) {
         canvasContext.fillStyle = 'white';
         if (playerOneScore >= WINNING_SCORE) {
-        canvasContext.fillText("You won!", 300, 200);
+          canvasContext.fillText("You won!", 320, 200);
         } else if (playerTwoScore >= WINNING_SCORE) {
-          canvasContext.fillText("Computer won!", 300, 200);
+          canvasContext.fillText("Computer won!", 320, 200);
         }
-        canvasContext.fillText("Click to continue!", 250, 500);
+        
+        canvasContext.fillText("Click to continue!", 280, 500);
         return;
       }
 
