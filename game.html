@@ -93,7 +93,7 @@
     }
 
     function ballReset() { // sends ball back to starts
-      if (playerOneScore >= WINNING_SCORE || playerTwoScore >= WINNING_SCORE) {
+      if (playerOneScore > WINNING_SCORE || playerTwoScore > WINNING_SCORE) {
         showingWinScreen = true; // shows win screen when a player wins
       }
 
@@ -105,9 +105,9 @@
     function computerMovement() {
       var paddleTwoYCenter = paddleTwoY + (PADDLE_HEIGHT/2); // finds center of paddle
       if (paddleTwoYCenter < ballY - 35) {
-        paddleTwoY += 6;
+        paddleTwoY += 10;
       } else if (paddleTwoYCenter > ballY + 35) {
-        paddleTwoY -= 6;
+        paddleTwoY -= 10;
       }
 
     }
@@ -163,12 +163,12 @@
 
       if (showingWinScreen) {
         canvasContext.fillStyle = 'white';
-        if (playerOneScore >= WINNING_SCORE) {
+        if (playerOneScore > WINNING_SCORE) {
           canvasContext.fillText("You won!", 330, 200);
-        } else if (playerTwoScore >= WINNING_SCORE) {
-          canvasContext.fillText("Computer won!", 335, 200);
+        } else if (playerTwoScore > WINNING_SCORE) {
+          canvasContext.fillText("Computer won!", 330, 200);
         }
-        canvasContext.fillText("Click to continue!", 290, 500);
+        canvasContext.fillText("Click to continue!", 285, 500);
         return;
       }
 
@@ -179,7 +179,6 @@
       colorRect(canvas.width - PADDLE_THICKNESS, paddleTwoY, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white'); // right paddle
       canvasContext.fillText(playerOneScore, 100, 100); // player 1 score text
       canvasContext.fillText(playerTwoScore, canvas.width - 100, 100); // player 2 score text
-      
     }
 
     function colorRect(leftX, topY, width, height, drawColor) { // reuseable function for drawing rectangles/squares
